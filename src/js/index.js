@@ -63,6 +63,77 @@ async function generate() {
             </div>
         `;
   });
+
+  const $countries = document.querySelectorAll(".country");
+  const $names = document.querySelectorAll(".country .name");
+  const $flags = document.querySelectorAll(".country .flagSVG");
+  const $populations = document.querySelectorAll(".country .population");
+  const $regions = document.querySelectorAll(".country .region");
+  const $capitals = document.querySelectorAll(".country .capital");
+  const $subRegions = document.querySelectorAll(".country .subregion");
+  const $currencies = document.querySelectorAll(".country .currencies");
+  const $nativeName = document.querySelectorAll(".country .native-name");
+  const $topLevelDomain = document.querySelectorAll(
+    ".country .top-level-domain"
+  );
+  const $languages = document.querySelectorAll(".country .languages");
+  const $borders = document.querySelectorAll(".country .borders");
+
+  $countries.forEach((country, index) => {
+    country.addEventListener("click", () => {
+      goToDetailsPage();
+
+      let arrayBorders = [];
+
+      $borders.forEach((border) => {
+        arrayBorders.push(border.innerHTML.split(","));
+      });
+
+      $sectionDetails.innerHTML = `
+            <button class="back-btn">
+                <i class="fa-solid fa-arrow-left-long"></i>
+                <span class="back-text">Back</span>
+            </button>
+            <div class="country-details">
+                <img class="flag" src="${$flags[index].src}" alt="Country flag">
+                <div class="info">
+                    <h3 class="name">${$names[index].innerHTML}</h3>
+                    <div class="extra-info">
+                        <div class="wrapper">
+                            <p class="native-name">${$nativeName[index].innerHTML}</p>
+                            <p class="population">${$populations[index].innerHTML}</p>
+                            <p class="region">${$regions[index].innerHTML}</p>
+                            <p class="sub-region">${$subRegions[index].innerHTML}</p>
+                            <p class="capital">${$capitals[index].innerHTML}</p>
+                        </div>
+                        <div class="wrapper">
+                            <p class="top-level-domain">${$topLevelDomain[index].innerHTML}</p>
+                            <p class="currencies">${$currencies[index].innerHTML}</p>
+                            <p class="languages">${$languages[index].innerHTML}</p>
+                        </div>
+                    </div>
+                    <div class="border-countries">
+                        <strong>Border Countries: </strong>
+                        <ul class="list">
+                            <li class="item">${arrayBorders[index][0]}</li>
+                            <li class="item">${arrayBorders[index][1]}</li>
+                            <li class="item">${arrayBorders[index][2]}</li>
+                            <li class="item">${arrayBorders[index][3]}</li>
+                            <li class="item">${arrayBorders[index][4]}</li>
+                            <li class="item">${arrayBorders[index][5]}</li>
+                            <li class="item">${arrayBorders[index][6]}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+
+      const $backBtn = document.querySelector(".back-btn");
+      $backBtn.addEventListener("click", returnHomePage);
+
+      clearUndefinedElements();
+    });
+  });
 }
 
 function filterByRegion(region) {
@@ -128,15 +199,6 @@ function cardAnimation() {
   });
 }
 
-function showAllCountries() {
-  const countries = document.querySelectorAll(".countries .country");
-  countries.forEach((country) => {
-    if (country.classList.contains("hidden")) {
-      country.classList.remove("hidden");
-    }
-  });
-}
-
 function changeTheme() {
   if (document.body.classList.contains("dark")) {
     document.body.classList.remove("dark");
@@ -147,6 +209,58 @@ function changeTheme() {
     document.body.offsetWidth;
     document.body.classList.add("dark");
   }
+}
+
+function returnHomePage() {
+  $sectionSearch.classList.remove("hidden");
+  $sectionCountries.classList.remove("hidden");
+  $sectionDetails.classList.add("hidden");
+}
+
+function goToDetailsPage() {
+  $sectionSearch.classList.add("hidden");
+  $sectionCountries.classList.add("hidden");
+  $sectionDetails.classList.remove("hidden");
+}
+
+function objectToArray(object) {
+  if (object) {
+    const array = JSON.stringify(object).split('"');
+
+    const newArray = [];
+    array.map((e) => {
+      if (
+        e.length > 3 &&
+        e != "symbol" &&
+        e != "name" &&
+        e != "official" &&
+        e != "common"
+      ) {
+        newArray.push(e);
+      }
+    });
+
+    return newArray;
+  }
+}
+
+function clearUndefinedElements() {
+  const itens = document.querySelectorAll(".border-countries .item");
+
+  itens.forEach((item) => {
+    if (item.innerHTML == "undefined") {
+      item.remove();
+    }
+  });
+}
+
+function showAllCountries() {
+  const countries = document.querySelectorAll(".countries .country");
+  countries.forEach((country) => {
+    if (country.classList.contains("hidden")) {
+      country.classList.remove("hidden");
+    }
+  });
 }
 
 $regionSelect.addEventListener("change", () => {
