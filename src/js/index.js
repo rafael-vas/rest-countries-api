@@ -65,4 +65,19 @@ async function generate() {
   });
 }
 
+function changeTheme() {
+  if (document.body.classList.contains("dark")) {
+    document.body.classList.remove("dark");
+    document.body.offsetWidth;
+    document.body.classList.add("light");
+  } else {
+    document.body.classList.remove("light");
+    document.body.offsetWidth;
+    document.body.classList.add("dark");
+  }
+}
+
+
+$themeBtn.addEventListener("click", changeTheme);
+
 generate();
