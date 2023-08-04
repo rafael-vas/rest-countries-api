@@ -214,6 +214,12 @@ body.dark .main .search .filter-field .region-select {
   cursor: pointer;
 }
 
+.main .countries .country.top1 { order: -5; }
+.main .countries .country.top2 { order: -4; }
+.main .countries .country.top3 { order: -3; }
+.main .countries .country.top4 { order: -2; }
+.main .countries .country.top5 { order: -1; }
+
 .main .countries .country:hover {
   transform: scale(1.04);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);

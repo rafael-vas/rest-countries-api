@@ -135,6 +135,8 @@ async function generate() {
       clearUndefinedElements();
     });
   });
+
+  rankBestCountries();
 }
 
 function filterByRegion(region) {
@@ -264,6 +266,22 @@ function showAllCountries() {
   });
 }
 
+function rankBestCountries() {
+  const countries = document.querySelectorAll(".countries .country");
+  const countriesNames = document.querySelectorAll(".countries .country .name");
+
+  countriesNames.forEach((countryName, index) => {
+    const name = countryName.innerHTML;
+
+    name == "Brazil" ? countries[index].classList.add("top1") : ""
+    name == "Canada" ? countries[index].classList.add("top2") : ""
+    name == "United States" ? countries[index].classList.add("top3") : ""
+    name == "Japan" ? countries[index].classList.add("top4") : ""
+    name == "Colombia" ? countries[index].classList.add("top5") : ""
+
+  });
+}
+
 $regionSelect.addEventListener("change", () => {
   filterByRegion($regionSelect.value);
   cardAnimation();
@@ -276,7 +294,7 @@ $searchIcon.addEventListener("click", () => {
   } else {
     showAllCountries();
   }
-})
+});
 
 $searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
