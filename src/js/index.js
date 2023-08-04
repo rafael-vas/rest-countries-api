@@ -65,6 +65,78 @@ async function generate() {
   });
 }
 
+function filterByRegion(region) {
+  const $countries = document.querySelectorAll(".country");
+  const $regions = document.querySelectorAll(".country .region");
+
+  $countries.forEach((country, index) => {
+    if (country.classList.contains("hidden"))
+      country.classList.remove("hidden");
+
+    let filtered = false;
+
+    if ($regions[index].innerText == region) {
+      filtered = true;
+    }
+
+    if (!filtered) country.classList.add("hidden");
+  });
+
+  if (region == "All") {
+    $countries.forEach((country) => {
+      if (country.classList.contains("hidden"))
+        country.classList.remove("hidden");
+    });
+  }
+}
+
+function searchByName(name) {
+  const $countries = document.querySelectorAll(".country");
+  const $names = document.querySelectorAll(".country .name");
+
+  let found = false;
+
+  $countries.forEach((country, index) => {
+    if (country.classList.contains("hidden"))
+      country.classList.remove("hidden");
+
+    if (name != "") {
+      if (
+        $names[index].innerText.toUpperCase().startsWith(name.toUpperCase())
+      ) {
+        console.log(country);
+        found = true;
+      } else {
+        country.classList.add("hidden");
+      }
+    }
+  });
+
+  if (!found) {
+    alert(`There is no country called "${name}"`);
+  }
+}
+
+function cardAnimation() {
+  const countries = document.querySelectorAll(".countries .country");
+  countries.forEach((country) => {
+    if (country.classList.contains("country")) {
+      country.classList.remove("country");
+      country.offsetWidth;
+      country.classList.add("country");
+    }
+  });
+}
+
+function showAllCountries() {
+  const countries = document.querySelectorAll(".countries .country");
+  countries.forEach((country) => {
+    if (country.classList.contains("hidden")) {
+      country.classList.remove("hidden");
+    }
+  });
+}
+
 function changeTheme() {
   if (document.body.classList.contains("dark")) {
     document.body.classList.remove("dark");
@@ -77,6 +149,21 @@ function changeTheme() {
   }
 }
 
+$regionSelect.addEventListener("change", () => {
+  filterByRegion($regionSelect.value);
+  cardAnimation();
+});
+
+$searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    if ($searchInput.value != "") {
+      searchByName($searchInput.value);
+      cardAnimation();
+    } else {
+      showAllCountries();
+    }
+  }
+});
 
 $themeBtn.addEventListener("click", changeTheme);
 
