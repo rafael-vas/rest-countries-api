@@ -117,6 +117,7 @@ body.dark .main .search .search-field {
 .main .search .search-field .search-icon {
   padding: 0 15px;
   opacity: 0.5;
+  cursor: pointer;
 }
 
 body.dark .main .search .search-field .search-icon {

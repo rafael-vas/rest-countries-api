@@ -5,6 +5,7 @@ const $sectionDetails = document.querySelector(".main .details");
 const $regionSelect = document.getElementById("regionSelect");
 const $searchInput = document.querySelector(".search-input");
 const $themeBtn = document.querySelector(".theme-btn");
+const $searchIcon = document.querySelector(".search .search-icon");
 
 async function getInfoCountries() {
   const res = await fetch("https://restcountries.com/v3.1/all");
@@ -267,6 +268,15 @@ $regionSelect.addEventListener("change", () => {
   filterByRegion($regionSelect.value);
   cardAnimation();
 });
+
+$searchIcon.addEventListener("click", () => {
+  if ($searchInput.value != "") {
+    searchByName($searchInput.value);
+    cardAnimation();
+  } else {
+    showAllCountries();
+  }
+})
 
 $searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
