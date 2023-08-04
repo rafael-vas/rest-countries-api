@@ -1,0 +1,12 @@
+:root {
+  /* DARK MODE */
+  --dm-text: hsl(0, 0%, 100%);
+  --dm-background: hsl(207, 26%, 17%);
+  --dm-elements: hsl(209, 23%, 22%);
+
+  /* LIGHT MODE */
+  --lm-text: hsl(200, 15%, 8%);
+  --lm-background: hsl(0, 0%, 98%);
+  --lm-elements: hsl(0, 0%, 100%);
+  --lm-input: hsl(0, 0%, 52%);
+}
