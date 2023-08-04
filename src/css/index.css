@@ -1,0 +1,80 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark {
+  animation: body-fade-out 0.5s alternate;
+}
+
+body.light {
+  animation: body-fade-out 0.5s alternate;
+}
+
+body.dark * {
+  color: var(--dm-text);
+}
+
+@keyframes body-fade-out {
+  0% {
+    opacity: 0.8;
+    translate: -2px;
+  }
+
+  66% {
+    translate: 2px;
+  }
+
+  100% {
+    opacity: 1;
+    translate: 0;
+  }
+}
+
+.header,
+.main,
+.footer {
+  padding-left: 110px;
+  padding-right: 110px;
+}
+
+.header {
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.065);
+  z-index: 1;
+}
+
+body.dark .header {
+  background-color: var(--dm-elements);
+}
+
+.header .logo {
+  font-size: 25px;
+  font-weight: 800;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.75);
+}
+
+
+.header .theme-btn {
+  padding: 6px 10px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.header .theme-icon {
+  rotate: -20deg;
+  padding-bottom: 1px;
+}
+
+.header .theme-text {
+  font-weight: 600;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2 50);
+}
