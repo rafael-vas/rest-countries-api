@@ -39,7 +39,7 @@ https://rafael-vas.github.io/rest-countries-api/
 
 #### Mobile
 
-<img src="design/mobile-design-home-light.jpg" alt="Mobile Design" width="175">
+<img src="design/mobile-design-home-dark.jpg" alt="Mobile Design" width="175">
 
 ## My process
 
