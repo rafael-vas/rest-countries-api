@@ -1,34 +1,34 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+# World Country Explorer
 
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+O **World Country Explorer** é um projeto que permite aos usuários explorar informações de diferentes países ao redor do mundo. Com esta aplicação, você pode visualizar detalhes básicos de cada país, como bandeira, população, idiomas, moedas, região, capital e países vizinhos.
 
-## Table of contents
+## Funcionalidades
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Links](#links)
-  - [Screenshot](#screenshot)
-- [My process](#my-process)
-  - [Built with](#built-with)
-- [Author](#author)
+- Visualizar detalhes básicos e avançados de cada país, incluindo bandeira, população, idiomas, moedas, região, capital e etc.
+- Filtrar países por região (continente) para facilitar a pesquisa.
+- Pesquisar países por nome para localizar informações específicas.
+- Tema claro/escuro, permitindo alternar entre os modos de exibição.
 
+## Como usar
 
-## Overview
+Acesse o projeto hospedado em [GitHub Pages](https://rafael-vas.github.io/world-country-explorer/).
 
-### The challenge
+Na página do projeto, você encontrará uma lista de países com suas respectivas informações básicas. Você pode usar as seguintes funcionalidades:
 
-Users should be able to:
+- Filtrar por região: No menu suspenso "Filter by Region", selecione a região desejada para ver apenas os países pertencentes a essa região.
+- Pesquisar por nome: Na barra de pesquisa no canto superior direito, insira o nome de um país para encontrar informações específicas sobre ele.
+- Visualizar mais detalhes: Clique em cada card de país para ver informações adicionais, como sub-região, idiomas, moedas e países vizinhos.
+- Alternar tema: Clique no botão "Theme" para alternar entre o modo claro e escuro da aplicação.
 
-- See all countries from the API on the homepage
-- Search for a country using an `input` field
-- Filter countries by region
-- Click on a country to see more detailed information
-- Toggle the color scheme between light and dark mode
+## Tecnologias utilizadas
 
-### Links
+- HTML5, CSS3 e JavaScript: Para a estruturação, estilo e funcionalidade da aplicação.
+- REST Countries API: Para obter dados detalhados sobre os países de todo o mundo.
+
+### Link
 
 ```
-https://rafael-vas.github.io/rest-countries-api/
+https://rafael-vas.github.io/world-country-explorer/
 ```
 
 ### Screenshot
@@ -41,16 +41,10 @@ https://rafael-vas.github.io/rest-countries-api/
 
 <img src="design/mobile-design-home-dark.jpg" alt="Mobile Design" width="175">
 
-## My process
+## Créditos
 
-### Built with
+Este projeto foi desenvolvido por [Rafael Vasconcelos](https://github.com/rafael-vas).
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- JavaScript
+## Contribuição
 
-
-## Author
-
-- Frontend Mentor - [@rafael-vas](https://www.frontendmentor.io/profile/rafael-vas)
+Se você quiser contribuir com este projeto, fique à vontade para fazer um fork e enviar um pull request com suas melhorias.
