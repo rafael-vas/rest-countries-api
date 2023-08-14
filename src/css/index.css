@@ -302,13 +302,13 @@ body.dark .main .countries .country {
   display: flex;
   flex-direction: column;
   gap: 45px;
-  animation: details-fade-out 0.6s alternate;
+  animation: details-fade-out 0.4s alternate;
 }
 
 @keyframes details-fade-out {
   0% {
     opacity: 0;
-    transform: translate(-75px);
+    transform: translate(-50px);
   }
 
   100% {
