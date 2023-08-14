@@ -20,7 +20,7 @@ async function getInfoCountries() {
     }
 
     return {
-      nativeName: country.name.nativeName ? nativeName : "None",
+      nativeName: nativeName ? nativeName : "None",
       topLevelDomain: country.tld ? country.tld : "None",
       currencies: currencies ? currencies : "None",
       languages: languages ? languages : "None",
